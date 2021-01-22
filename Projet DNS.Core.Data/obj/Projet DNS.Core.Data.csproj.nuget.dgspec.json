@@ -1,0 +1,62 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Kalictong\\source\\repos\\Projet DNS.Core.Data\\Projet DNS.Core.Data.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Kalictong\\source\\repos\\Projet DNS.Core.Data\\Projet DNS.Core.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Kalictong\\source\\repos\\Projet DNS.Core.Data\\Projet DNS.Core.Data.csproj",
+        "projectName": "Projet DNS.Core.Data",
+        "projectPath": "C:\\Users\\Kalictong\\source\\repos\\Projet DNS.Core.Data\\Projet DNS.Core.Data.csproj",
+        "packagesPath": "C:\\Users\\Kalictong\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kalictong\\source\\repos\\Projet DNS.Core.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kalictong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

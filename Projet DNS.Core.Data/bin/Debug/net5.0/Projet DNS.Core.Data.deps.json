@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Projet DNS.Core.Data/1.0.0": {
+        "runtime": {
+          "Projet DNS.Core.Data.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Projet DNS.Core.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

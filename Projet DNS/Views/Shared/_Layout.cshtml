@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Projet DNS</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- Tempusdominus Bbootstrap 4 -->
+        <link rel="stylesheet" href="~/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+        <!-- iCheck -->
+        <link rel="stylesheet" href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+        <!-- JQVMap -->
+        <link rel="stylesheet" href="~/plugins/jqvmap/jqvmap.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="~/css/adminlte.min.css">
+        <!-- overlayScrollbars -->
+        <link rel="stylesheet" href="~/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+        <!-- Daterange picker -->
+        <link rel="stylesheet" href="~/plugins/daterangepicker/daterangepicker.css">
+        <!-- summernote -->
+        <link rel="stylesheet" href="~/plugins/summernote/summernote-bs4.css">
+        <!-- Google Font: Source Sans Pro -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+        <!-- style -->
+        <link href="~/css/style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body class="hold-transition sidebar-mini layout-fixed">
+        <div class="wrapper">
+
+            <!-- Navbar -->
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.navbar -->
+            <!-- Main Sidebar Container -->
+            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                <!-- Brand Logo -->
+                <a href="index.html" class="brand-link">
+                    <img src="~/img/logo.png" alt="Project DNS Logo" style="height: 50px;">
+                    <span class="brand-text font-weight-light">Projet DNS</span>
+                </a>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <!-- Add icons to the links using the .nav-icon class
+                        with font-awesome or any other icon font library -->
+                            <li class="nav-item has-treeview">
+                                <a id="home" class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>Tableaux de bord</p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a id="queryLog" class="nav-link" asp-area="" asp-controller="QueryLog" asp-action="Index">
+                                    <i class="nav-icon fas fa-file-alt"></i>
+                                    <p>Log requêtes</p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a id="whitelist" class="nav-link" asp-area="" asp-controller="Whitelist" asp-action="Index">
+                                    <i class="nav-icon fas fa-check-circle"></i>
+                                    <p>
+                                        Whitelist
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a id="blacklist" class="nav-link" asp-area="" asp-controller="Blacklist" asp-action="Index">
+                                    <i class="nav-icon fas fa-ban"></i>
+                                    <p>
+                                        Blacklist
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-edit"></i>
+                                    <p>
+                                        Désactivation
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>5 Minute</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>10 Minute</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>15 Minute</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Choisir le temps</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li id="outilsmenu" class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-table"></i>
+                                    <p>
+                                        Outils
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a id="graphics" class="nav-link" asp-area="" asp-controller="Graphique" asp-action="Index">
+                                            <i class="nav-icon fas fa-file-alt"></i>
+                                            <p>Graphique</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a id="toplist" class="nav-link" asp-area="" asp-controller="TopList" asp-action="Index">
+                                            <i class="nav-icon fas fa-file-alt"></i>
+                                            <p>Top List</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a id="projetDnsLog" class="nav-link" asp-area="" asp-controller="ProjetDNSLog" asp-action="Index">
+                                            <i class="nav-icon fas fa-file-alt"></i>
+                                            <p>projetdns.log</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a id="parametre" class="nav-link" asp-area="" asp-controller="Parametre" asp-action="Index">
+                                    <i class="nav-icon far fa-cogs"></i>
+                                    <p>
+                                        Paramètres
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon far fa-sign-out"></i>
+                                    <p>
+                                        Déconnexion
+                                    </p>
+                                </a>
+                            </li>
+                            <!--<li class="nav-item has-treeview">
+                            <a href="help.html" class="nav-link">
+                                <i class="nav-icon far fa-info-circle"></i>
+                                <p>
+                                    Aide
+                                </p>
+                            </a>
+                        </li>-->
+                        </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                @RenderBody()
+            </div>
+            <!-- /.content-wrapper -->
+
+            <footer class="main-footer">
+                <strong> &copy; Copyright 2020-2021</strong> ProjetDNS.io
+                All rights reserved.
+                <div class="float-right d-none d-sm-inline-block">
+                    <b>Version</b> 1.0.0
+                </div>
+            </footer>
+
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+        <!-- jQuery -->
+        <script src="~/plugins/jquery/jquery.min.js"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="~/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>
+            $.widget.bridge('uibutton', $.ui.button)
+        </script>
+        <!-- Bootstrap 4 -->
+        <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- DataTables -->
+        <script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+        <!-- ChartJS -->
+        <script src="~/plugins/chart.js/Chart.min.js"></script>
+        <!-- Sparkline -->
+        <script src="~/plugins/sparklines/sparkline.js"></script>
+        <!-- JQVMap -->
+        <script src="~/plugins/jqvmap/jquery.vmap.min.js"></script>
+        <script src="~/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="~/plugins/jquery-knob/jquery.knob.min.js"></script>
+        <!-- daterangepicker -->
+        <script src="~/plugins/moment/moment.min.js"></script>
+        <script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="~/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+        <!-- Summernote -->
+        <script src="~/plugins/summernote/summernote-bs4.min.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="~/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="~/js/adminlte.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="~/js/pages/dashboard.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="~/js/demo.js"></script>
+        <!-- FLOT CHARTS -->
+        <script src="~/plugins/flot/jquery.flot.js"></script>
+        <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+        <script src="~/plugins/flot-old/jquery.flot.resize.min.js"></script>
+        <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+        <script src="~/plugins/flot-old/jquery.flot.pie.min.js"></script>
+        <!-- Own Javascript data-->
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+        <!-- Add active-->
+        @if (ViewData["Active"] != null)
+        {
+            <script type="text/javascript">document.getElementById("@ViewData["Active"]").classList.add("active");</script>
+        }
+        @if (ViewData["Menu"] != null)
+        {
+            <script type="text/javascript">document.getElementById("@ViewData["Menu"]").classList.add("menu-open");</script>
+        }
+
+        @if (ViewData["chart"] == "home")
+        {
+            <script type="text/javascript">
+        /*
+                  * LINE CHART
+                  */
+
+                 var dataChart = []
+
+                 var jsonObj = @Html.Raw(Json.Serialize(ViewBag.chartValue));
+
+                 var i = 0
+                 for (j = 0; j < 25; j += 0.5) {
+                     dataChart.push([j - 0.5, jsonObj[i]]);
+                     i++;
+                 }
+
+                 var line_data1 = {
+                     data: dataChart,
+                     color: '#3c8dbc'
+                 }
+
+                 $.plot('#line-chart', [line_data1], {
+                     grid: {
+                         hoverable: true,
+                         borderColor: '#f3f3f3',
+                         borderWidth: 1,
+                         tickColor: '#f3f3f3'
+                     },
+                     series: {
+                         shadowSize: 0,
+                         lines: {
+                             show: true
+                         },
+                         points: {
+                             show: true
+                         }
+                     },
+                     lines: {
+                         fill: false,
+                         color: ['#3c8dbc', '#f56954']
+                     },
+                     yaxis: {
+                         show: true
+                     },
+                     xaxis: {
+                         show: true
+                     }
+                 })
+
+                 //Initialize tooltip on hover
+                 $('<div class="tooltip-inner" id="line-chart-tooltip"></div>').css({
+                     position: 'absolute',
+                     display: 'none',
+                     opacity: 0.8
+                 }).appendTo('body')
+
+                 $('#line-chart').bind('plothover', function (event, pos, item) {
+
+                     if (item) {
+                         var x = item.datapoint[0].toFixed(2),
+                             y = item.datapoint[1].toFixed(2)
+
+                         $('#line-chart-tooltip').html(item.series.label + ' of ' + x + ' = ' + y)
+                             .css({
+                                 top: item.pageY + 5,
+                                 left: item.pageX + 5
+                             })
+                             .fadeIn(200)
+                     } else {
+                         $('#line-chart-tooltip').hide()
+                     }
+                 })
+             /* END LINE CHART */
+            </script>
+        }
+
+        @if (ViewData["chart"] == "graphics")
+        {
+    <script>
+                //-------------
+                //- DONUT CHART -
+                //-------------
+                // Get context with jQuery - using jQuery's .get() method.
+                var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+
+                //Donnée du Donut
+                var labelData = @Html.Raw(Json.Serialize(ViewBag.chartDonutLabel));
+                var dataDonut = @Html.Raw(Json.Serialize(ViewBag.chartDonutData));
+
+                var donutData = {
+                    labels: labelData,
+                    datasets: [
+                        {
+                            data: dataDonut,
+                            backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+                        }
+                    ]
+                }
+                var donutOptions = {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                }
+                //Create pie or douhnut chart
+                // You can switch between pie and douhnut using the method below.
+                var donutChart = new Chart(donutChartCanvas, {
+                    type: 'doughnut',
+                    data: donutData,
+                    options: donutOptions
+                })
+
+                //-------------
+                //- PIE CHART -
+                //-------------
+                // Get context with jQuery - using jQuery's .get() method.
+                var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+
+                //Donnée du Pie
+                var labelDataPie = @Html.Raw(Json.Serialize(ViewBag.chartPieLabel));
+                var dataPie = @Html.Raw(Json.Serialize(ViewBag.chartPieData));
+
+                var pieDatas = {
+                    labels: labelDataPie,
+                    datasets: [
+                        {
+                            data: dataPie,
+                            backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+                        }
+                    ]
+                }
+
+                var pieData = pieDatas;
+                var pieOptions = {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                }
+                //Create pie or douhnut chart
+                // You can switch between pie and douhnut using the method below.
+                var pieChart = new Chart(pieChartCanvas, {
+                    type: 'pie',
+                    data: pieData,
+                    options: pieOptions
+                })
+    </script>
+        }
+    </body>
+</html>

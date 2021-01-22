@@ -1,0 +1,143 @@
+﻿@using Projet_DNS.Core.Data.Models
+
+@model Blacklist
+@*Vue pour la blacklist*@
+@{
+    ViewData["Title"] = "Blacklist";
+    ViewData["Active"] = "blacklist";
+}
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Blacklist</h1>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Ajout reussi et echouer -->
+            @if (ViewBag.AjoutReussi == "reussi")
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Ajout Reussi !</strong> Le domain : @ViewBag.Domain a été ajouter a la blacklist.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+            else if (ViewBag.AjoutReussi == "echouer")
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Ajout Echouer !</strong> Le domain : @ViewBag.Domain est inconnu.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+            else if (ViewBag.AjoutReussi == "contient")
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Ajout Echouer !</strong> vous avez déja ajouter ce domaine dans la blacklist !
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+            else if (ViewBag.AjoutReussi == "whitecontient")
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Ajout Echouer !</strong> ce domaine est dans la whitelist !
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+
+            <!-- Delete reussi echouer -->
+            @if (ViewBag.DeleteReussi == "reussi")
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Suppression Reussi !</strong> Le domain : @ViewBag.DomainDelete a bien été supprimer de la blacklist.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+            else if (ViewBag.DeleteReussi == "echouer")
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Suppression Echouer !</strong> veillez réessayer.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+
+            <!-- Instruction -->
+            <div class="col-sm-12">
+                <p>Pour ajouter un domain, veillez écrire le domaine ou le sous domaine dans le formulaire et faite ajouter.</p>
+            </div>
+
+            <form asp-action="Add" class="col-sm-11">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <!-- Block Ajout Blacklist -->
+                <div class="input-group">
+                    <input asp-for="Domain" type="text" class="form-control" placeholder="Ajouter un domain (example.net ou sub.example.net)" />
+                    <span class="text-danger"></span>
+                    <span class="input-group-append">
+                        <button type="submit" value="Add" class="btn btn-default btn-flat">Ajouter</button>
+                    </span>
+                </div>
+            </form>
+            <form asp-action="Refresh" class="col-sm-1">
+                <div class="input-group">
+                    <span class="input-group-append">
+                        <button type="submit" class="btn btn-default btn-flat"><i class="nav-icon far fa-sync-alt"></i></button>
+                    </span>
+                </div>
+            </form>
+
+            <!-- Information -->
+            <div class="mt-3 col-sm-12">
+                <p>Note : Il n'est pas possible de mettre en liste noir un domaine ou un sous-domaine autorisé.</p>
+            </div>
+
+            @if (ViewBag.Blacklist != null && ViewBag.Blacklist.Count > 0)
+            {
+                <!-- Block Ajout Blacklist -->
+                @foreach (Blacklist item in ViewBag.Blacklist)
+                {
+                    <form asp-action="Delete" class="col-sm-12">
+                        <div class="input-group mb-2">
+                            <input asp-for="Domain" type="text" class="form-control" value="@item.Domain" readonly>
+                            <span class="input-group-append">
+                                <button type="submit" value="Delete" class="btn btn-default btn-flat" style="background-color: #dd4c39;"><i class="nav-icon fa fa-trash" style="color: white;"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                }
+            }
+            else
+            {
+                <div class="alert alert-info alert-dismissible col-sm-12">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h5><i class="icon fas fa-info"></i> Information !</h5>
+                    Actuellement votre liste est vide.
+                </div>
+            }
+        </div>
+    </div>
+
+</section>
+<!-- /.content -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

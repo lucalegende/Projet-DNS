@@ -1,0 +1,98 @@
+﻿@using Projet_DNS.Core.Data.Models
+
+@model Toplist 
+@*
+    Affichage du top 10 des dommaines lu et bloquer
+*@
+@{
+    ViewData["Title"] = "Top 10";
+    ViewData["Active"] = "toplist";
+    ViewData["Menu"] = "outilsmenu";
+}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h1 class="m-0 text-dark">Top 10 des requêtes les plus demander</h1>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Top domains</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Domain</th>
+                                    <th style="width: 100px">Hits</th>
+                                    <th style="width: 150px">Fréquence</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Toplist top in ViewBag.Toplists)
+                                {
+                                    <tr>
+                                        <td>@top.Domain</td>
+                                        <td>@top.Hits</td>
+                                        <td>
+                                            <div class="progress progress-xs">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @top.Frequence%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <label class="text-center">@top.Frequence%</label>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Top domains bloquer</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Domain</th>
+                                    <th style="width: 100px">Hits</th>
+                                    <th style="width: 150px">Fréquence</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Toplist top in ViewBag.ToplistsBlocked)
+                                {
+                                    <tr>
+                                        <td>@top.Domain</td>
+                                        <td>@top.Hits</td>
+                                        <td>
+                                            <div class="progress progress-xs">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @top.Frequence%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <label class="text-center">@top.Frequence%</label>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

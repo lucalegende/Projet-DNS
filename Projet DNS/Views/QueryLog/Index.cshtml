@@ -1,0 +1,82 @@
+﻿@using Projet_DNS.Core.Data.Models; 
+@model QueryLog
+
+@{
+    ViewData["Title"] = "Log";
+    ViewData["Active"] = "queryLog";
+}
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h3 class="card-title">Requêtes récentes</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date/Heure</th>
+                                    <th>Ip Serveur</th>
+                                    <th>Domain</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (QueryLog log in ViewBag.QueryLogs)
+                                {
+                                    @if (log.Blacklist)
+                                    {
+                                            <tr class="text-danger">
+                                                <td>@log.DateTime</td>
+                                                <td>@log.IP</td>
+                                                <td>@log.Domain</td>
+                                                <td>Blocker par Project Dns</td>
+                                                <td>
+                                                    <form asp-action="AddWhiteList">
+                                                        <input asp-for="Domain" type="hidden" value="@log.Domain">
+                                                        <button class="btn btn-success btn-sm col-sm-12" type="submit"><i class="far fa-check-circle" aria-hidden="true"></i> Whitelist</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                    }
+                                    else
+                                    {
+                                        
+                                            <tr class="text-green">
+                                                <td>@log.DateTime</td>
+                                                <td>@log.IP</td>
+                                                <td>@log.Domain</td>
+                                                <td>Autoriser</td>
+                                                <td>
+                                                    <form asp-action="AddBlackList">
+                                                        <input asp-for="Domain" type="hidden" value="@log.Domain">
+                                                        <button class="btn btn-danger btn-sm col-sm-12" type="submit"><i class="fa fa-ban" aria-hidden="true"></i> Blacklist</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                    }
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Rendering engine</th>
+                                    <th>Browser</th>
+                                    <th>Platform(s)</th>
+                                    <th>Engine version</th>
+                                    <th>CSS grade</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
