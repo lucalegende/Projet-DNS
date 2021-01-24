@@ -9,8 +9,15 @@ namespace Projet_DNS.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.QueryLogs = Data.querylogs.ToList();
-            return View();
+            var cookies = Request.Cookies[".ASPNetCore.Cookies"];
+
+            if (cookies != null)
+            {
+                ViewBag.QueryLogs = Data.querylogs.ToList();
+                return View();
+            }
+            else
+                return RedirectToAction("Index", "Identification");
         }
 
         [HttpPost]

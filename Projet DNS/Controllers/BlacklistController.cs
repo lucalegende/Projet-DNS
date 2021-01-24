@@ -13,8 +13,15 @@ namespace Projet_DNS.Controllers
         // GET: BlacklistController
         public ActionResult Index()
         {
-            ViewBag.Blacklist = Data.blacklists;
-            return View();
+            var cookies = Request.Cookies[".ASPNetCore.Cookies"];
+
+            if (cookies != null)
+            {
+                ViewBag.Blacklist = Data.blacklists;
+                return View();
+            }  
+            else
+                return RedirectToAction("Index", "Identification");
         }
 
         [HttpPost]

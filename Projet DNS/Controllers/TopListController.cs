@@ -11,13 +11,20 @@ namespace Projet_DNS.Controllers
     {
         public IActionResult Index()
         {
-            //Liste des hists de site rqaueter
-            ViewBag.Toplists = Data.toplists.OrderByDescending(x => x.Hits).Take(10).ToList();
+            var cookies = Request.Cookies[".ASPNetCore.Cookies"];
 
-            //Liste des hits de site bloquer requeter
-            ViewBag.ToplistsBlocked = Data.toplists.FindAll(x => x.blocked == true).OrderByDescending(x => x.Hits).Take(10).ToList();
+            if (cookies != null)
+            {
+                //Liste des hists de site rqaueter
+                ViewBag.Toplists = Data.toplists.OrderByDescending(x => x.Hits).Take(10).ToList();
 
-            return View();
+                //Liste des hits de site bloquer requeter
+                ViewBag.ToplistsBlocked = Data.toplists.FindAll(x => x.blocked == true).OrderByDescending(x => x.Hits).Take(10).ToList();
+
+                return View();
+            }
+            else
+                return RedirectToAction("Index", "Identification");
         }
     }
 }

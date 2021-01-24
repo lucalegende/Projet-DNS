@@ -22,29 +22,38 @@ namespace Projet_DNS.Controllers
 
         public IActionResult Index()
         {
-            //Chart Data
-            var chart = new List<int>();
+            var cookies = Request.Cookies[".ASPNetCore.Cookies"];
 
-            for (var dt = DateTime.Today; dt <= DateTime.Today.AddDays(1); dt = dt.AddHours(0.5))
+            if (cookies != null)
             {
-                var QueryNew = Data.querylogs.Where( x => x.DateTime >= DateTime.Today).Where(x => x.DateTime <= dt).ToList();
-                chart.Add(QueryNew.Count);
+                //Chart Data
+                var chart = new List<int>();
+                var dtEx = DateTime.Today;
+
+                for (var dt = DateTime.Today; dt <= DateTime.Today.AddDays(1); dt = dt.AddHours(0.5))
+                {
+                    var QueryNew = Data.querylogs.Where(x => x.DateTime >= dtEx).Where(x => x.DateTime <= dt).ToList();
+                    chart.Add(QueryNew.Count);
+                    dtEx = dt;
+                }
+
+                ViewBag.chartValue = chart;
+
+                //Query log
+                int TotalQuery = Data.querylogs.Count();
+                int TotalQueryBlocked = Data.querylogs.Where(x => x.Blacklist == true).Count();
+
+                ViewBag.TotalQuery = TotalQuery;
+                ViewBag.TotalQueryBlocked = TotalQueryBlocked;
+                if (TotalQuery != 0)
+                    ViewBag.PourcentBloquer = TotalQueryBlocked * 100 / TotalQuery;
+                else
+                    ViewBag.PourcentBloquer = 0;
+                ViewBag.TotalBlacklist = Data.blacklists.Count();
+                return View();
             }
-
-            ViewBag.chartValue = chart;
-
-            //Query log
-            int TotalQuery = Data.querylogs.Count();
-            int TotalQueryBlocked = Data.querylogs.Where(x => x.Blacklist == true).Count();
-
-            ViewBag.TotalQuery = TotalQuery;
-            ViewBag.TotalQueryBlocked = TotalQueryBlocked;
-            if (TotalQuery != 0)
-                ViewBag.PourcentBloquer = TotalQueryBlocked * 100 / TotalQuery;
             else
-                ViewBag.PourcentBloquer = 0;
-            ViewBag.TotalBlacklist = Data.blacklists.Count();
-            return View();
+                return RedirectToAction("Index", "Identification");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

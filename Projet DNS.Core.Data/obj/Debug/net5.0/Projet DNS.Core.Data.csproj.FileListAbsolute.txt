@@ -9,3 +9,4 @@ C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\obj\Debug\net5.0\Projet DNS
 C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\obj\Debug\net5.0\Projet DNS.Core.Data.dll
 C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\obj\Debug\net5.0\ref\Projet DNS.Core.Data.dll
 C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\obj\Debug\net5.0\Projet DNS.Core.Data.pdb
+C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\obj\Debug\net5.0\Projet DNS.Core.Data.csprojAssemblyReference.cache

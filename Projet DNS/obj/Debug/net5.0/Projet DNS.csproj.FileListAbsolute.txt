@@ -140,3 +140,32 @@ C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\ref\Projet DNS.dll
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.pdb
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.genruntimeconfig.cache
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Razor\Views\Graphique\Index.cshtml.g.cs
+C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Razor\Views\Identification\Index.cshtml.g.cs
+C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Razor\Views\Logout\Index.cshtml.g.cs
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Razor\Views\Installation\Index.cshtml.g.cs

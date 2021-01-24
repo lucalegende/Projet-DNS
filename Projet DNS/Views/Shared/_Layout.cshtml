@@ -1,37 +1,75 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Principal
+@using System.ServiceProcess;
+
+@{
+    using (WindowsIdentity identity = WindowsIdentity.GetCurrent())
+    {
+        WindowsPrincipal principal = new WindowsPrincipal(identity);
+        ViewBag.AccountAdmin = principal.IsInRole(WindowsBuiltInRole.Administrator);
+    }
+
+    ServiceController sc = new ServiceController("unbound");
+    ViewBag.DNSStart = false;
+
+    if (sc.Status == ServiceControllerStatus.Running) {
+        ViewBag.DNSStart = true;
+    }
+
+
+}
+<!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - Projet DNS</title>
-        <!-- Tell the browser to be responsive to screen width -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
-        <!-- Ionicons -->
-        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-        <!-- Tempusdominus Bbootstrap 4 -->
-        <link rel="stylesheet" href="~/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-        <!-- iCheck -->
-        <link rel="stylesheet" href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-        <!-- JQVMap -->
-        <link rel="stylesheet" href="~/plugins/jqvmap/jqvmap.min.css">
-        <!-- Theme style -->
-        <link rel="stylesheet" href="~/css/adminlte.min.css">
-        <!-- overlayScrollbars -->
-        <link rel="stylesheet" href="~/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-        <!-- Daterange picker -->
-        <link rel="stylesheet" href="~/plugins/daterangepicker/daterangepicker.css">
-        <!-- summernote -->
-        <link rel="stylesheet" href="~/plugins/summernote/summernote-bs4.css">
-        <!-- Google Font: Source Sans Pro -->
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-        <!-- DataTables -->
-        <link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-        <link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-        <!-- style -->
-        <link href="~/css/style.css" rel="stylesheet" type="text/css">
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Projet DNS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="~/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="~/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/plugins/summernote/summernote-bs4.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- style -->
+    <link href="~/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+@if (ViewData["Active"] == null)
+{
+    <body class="hold-transition login-page">
+        <div class="login-box">
+            @RenderBody()
+        </div>
+        <!-- /.login-box -->
+        <!-- jQuery -->
+        <script src="plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/adminlte.min.js"></script>
+
+    </body>
+}
+else
+{
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
 
@@ -43,6 +81,40 @@
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                     </li>
                 </ul>
+                <div class="navbar-nav ml-auto">
+                    <div class="row">
+                        <a class="nav-link">Serveur DNS : </a>
+                        @if (ViewBag.DNSStart == true)
+                        {
+                            <span class="input-group-text" style="background-color: green;">
+                                <i class="nav-icon fa fa-check" style="color: white;"></i>
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="input-group-text" style="background-color: red;">
+                                <i class="nav-icon fa fa-times" style="color: white;"></i>
+                            </span>
+                        }
+                    </div>
+
+                    <div class="row ml-2">
+                        <a class="nav-link">Droit administrateur : </a>
+                        @if (ViewBag.AccountAdmin == true)
+                        {
+                            <span class="input-group-text" style="background-color: green;">
+                                <i class="nav-icon fa fa-check" style="color: white;"></i>
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="input-group-text" style="background-color: red;">
+                                <i class="nav-icon fa fa-times" style="color: white;"></i>
+                            </span>
+                            <a class="nav-link">Le projet vous bloque l'accès</a>
+                        }
+                    </div>
+                </div>
             </nav>
             <!-- /.navbar -->
             <!-- Main Sidebar Container -->
@@ -60,7 +132,7 @@
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
+                            with font-awesome or any other icon font library -->
                             <li class="nav-item has-treeview">
                                 <a id="home" class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -162,7 +234,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a id="deconnect" class="nav-link" asp-area="" asp-controller="Logout" asp-action="Index">
                                     <i class="nav-icon far fa-sign-out"></i>
                                     <p>
                                         Déconnexion
@@ -170,13 +242,13 @@
                                 </a>
                             </li>
                             <!--<li class="nav-item has-treeview">
-                            <a href="help.html" class="nav-link">
-                                <i class="nav-icon far fa-info-circle"></i>
-                                <p>
-                                    Aide
-                                </p>
-                            </a>
-                        </li>-->
+                                <a href="help.html" class="nav-link">
+                                    <i class="nav-icon far fa-info-circle"></i>
+                                    <p>
+                                        Aide
+                                    </p>
+                                </a>
+                            </li>-->
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
@@ -263,7 +335,7 @@
             <script type="text/javascript">document.getElementById("@ViewData["Menu"]").classList.add("menu-open");</script>
         }
 
-        @if (ViewData["chart"] == "home")
+        @if (ViewData["chart"] == "home" )
         {
             <script type="text/javascript">
         /*
@@ -342,7 +414,7 @@
 
         @if (ViewData["chart"] == "graphics")
         {
-    <script>
+            <script>
                 //-------------
                 //- DONUT CHART -
                 //-------------
@@ -358,7 +430,7 @@
                     datasets: [
                         {
                             data: dataDonut,
-                            backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+                            backgroundColor: ['#ef3224', '#f15523', '#f99b1e', '#f9bd19', '#f3ec3a', '#d0dd37', '#62b146', '#1496ce', '#3d5eac', '#463191'],
                         }
                     ]
                 }
@@ -389,7 +461,7 @@
                     datasets: [
                         {
                             data: dataPie,
-                            backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+                            backgroundColor: ['#ef3224', '#f15523', '#f99b1e', '#f9bd19', '#f3ec3a', '#d0dd37', '#62b146', '#1496ce', '#3d5eac', '#463191'],
                         }
                     ]
                 }
@@ -406,7 +478,8 @@
                     data: pieData,
                     options: pieOptions
                 })
-    </script>
+            </script>
         }
     </body>
+}
 </html>

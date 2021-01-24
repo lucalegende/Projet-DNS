@@ -59,7 +59,7 @@ namespace Projet_DNS.BusinessLogic
 
             //Si les log ne sont pas vide alors
             if (!string.IsNullOrEmpty(querylogfull))
-               await SepareDataLog(querylogfull);
+                SepareDataLog(querylogfull);
         }
 
         #region Recherche du dossier unbound
@@ -126,9 +126,8 @@ namespace Projet_DNS.BusinessLogic
             return "";
         }
 
-        private static async Task SepareDataLog( string entree)
+        private static void SepareDataLog( string entree)
         {
-            await Task.Delay(1);
             StringReader sr = new StringReader(entree);
 
             while (sr.Peek() >= 0)
@@ -152,20 +151,16 @@ namespace Projet_DNS.BusinessLogic
                         ip = "-";
                     }
 
-                    if(blacklists.Find(x => x.Domain.Contains(domain) || x.Domain == ".") != null || TLD.Contains(domain))
+                    if(blacklists.Any(s => domain.Contains(s.Domain)) || blacklists.Find(x => x.Domain == ".") != null || TLD.Contains(domain))
                     {
-                        string ipDomain = Dns.GetHostAddresses(domain).FirstOrDefault().ToString();
-                        string ipDomainLists = Dns.GetHostAddresses(blacklists.Find(x => x.Domain.Contains(domain)).Domain).FirstOrDefault().ToString();
-
-                        if (ipDomain.Equals(ipDomainLists))
-                            blackTrue = true;
-
+                        blackTrue = true;
+                       
                         for (int i = 0; i < whitelists.Count && blackTrue; i++)
                         {
                             try
                             {
-                                ipDomain = Dns.GetHostAddresses(domain).FirstOrDefault().ToString();
-                                ipDomainLists = Dns.GetHostAddresses(whitelists[i].Domain).FirstOrDefault().ToString();
+                               string ipDomain = Dns.GetHostAddresses(domain).FirstOrDefault().ToString();
+                               string ipDomainLists = Dns.GetHostAddresses(whitelists[i].Domain).FirstOrDefault().ToString();
 
                                 if (domain.Contains(whitelists[i].Domain) && ipDomain.Equals(ipDomainLists))
                                     blackTrue = false;
@@ -187,7 +182,7 @@ namespace Projet_DNS.BusinessLogic
                         querylogs.Add(queryLog);
 
                     // Ajoute a la liste Toplist ou le hits
-                    addTopList(domain);
+                        addTopList(domain);
                 }
             }
         }
@@ -210,7 +205,7 @@ namespace Projet_DNS.BusinessLogic
             //Recupération des dernière données
             string endFile2 = string.Join(Environment.NewLine, endFile.Take(index-1));
 
-            await SepareDataLog(endFile2);
+            SepareDataLog(endFile2);
 
             querylogfull = readFileLog();
         }
@@ -314,6 +309,8 @@ namespace Projet_DNS.BusinessLogic
                     Domain = domain
                 });
 
+                changeTopAndQueryBlackList(domain, true);
+
                 //Refresh dns and services
                 refreshServeurUnbound();
                 refreshDNS();
@@ -338,6 +335,8 @@ namespace Projet_DNS.BusinessLogic
                 //Supression du domain dans la blacklist
                 var itemToRemove = blacklists.Single(r => r.Domain == domain);
                 blacklists.Remove(itemToRemove);
+
+                changeTopAndQueryBlackList(domain, false);
 
                 //Refresh dns and services
                 refreshServeurUnbound();
@@ -529,16 +528,21 @@ namespace Projet_DNS.BusinessLogic
             {
                 if (Data.addWhitelist(domain))
                 {
-                    foreach (QueryLog queryLog in Data.querylogs.ToList().Where(queryLog => queryLog.Domain == domain))
-                    {
-                        queryLog.Blacklist = false;
-                    }
-
-                    foreach (Toplist toplist in toplists.ToList().Where(toplist => toplist.Domain == domain))
-                    {
-                        toplist.blocked = false;
-                    }
+                    changeTopAndQueryBlackList(domain, false);
                 } 
+            }
+        }
+
+        private static void changeTopAndQueryBlackList(string domain, bool blocked)
+        {
+            foreach (QueryLog queryLog in querylogs.ToList().Where(queryLog => queryLog.Domain == domain))
+            {
+                queryLog.Blacklist = blocked;
+            }
+
+            foreach (Toplist toplist in toplists.ToList().Where(toplist => toplist.Domain == domain))
+            {
+                toplist.blocked = blocked;
             }
         }
         #endregion

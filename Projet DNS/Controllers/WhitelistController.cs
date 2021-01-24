@@ -12,8 +12,15 @@ namespace Projet_DNS.Controllers
         // GET: WhitelistController
         public ActionResult Index()
         {
-            ViewBag.Whitelist = Data.whitelists;
-            return View();
+            var cookies = Request.Cookies[".ASPNetCore.Cookies"];
+
+            if (cookies != null)
+            {
+                ViewBag.Whitelist = Data.whitelists;
+                return View();
+            }
+            else
+                return RedirectToAction("Index", "Identification");
         }
 
         [HttpPost]

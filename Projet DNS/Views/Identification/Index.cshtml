@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="login-logo">
+    <a href="../../index2.html"><b>Project</b> DNS</a>
+</div>
+
+@if (ViewBag.Erreur != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @ViewBag.Erreur
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<!-- /.login-logo -->
+<div class="card">
+    <div class="card-body login-card-body">
+        <p class="login-box-msg">Entrer votre mot de passe pour utiliser le Projet DNS</p>
+
+        <form method="post">
+            <label for="email">Adresse email</label>
+            <div class="input-group mb-3">
+                <input type="text" name="username" class="form-control" placeholder="Email">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                    </div>
+                </div>
+            </div>
+            <label for="password">Mot de passe</label>
+            <div class="input-group mb-3">
+                <input type="password" name="password" class="form-control" placeholder="Mot de passe">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <!-- /.col -->
+                <div class="col col-lg-5">
+                    <button class="btn btn-primary btn-block">Connexion</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+    </div>
+    <p class="login-box-msg">Pour changer le mot de passe :<br /> modifier le dans la base.</p>
+    <!-- /.login-card-body -->
+</div>

@@ -11,8 +11,15 @@ namespace Projet_DNS.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.QueryLogFull = Data.returnLog(70);
-            return View();
+            var cookies = Request.Cookies[".ASPNetCore.Cookies"];
+
+            if (cookies != null)
+            {
+                ViewBag.QueryLogFull = Data.returnLog(70);
+                return View();
+            }
+            else
+                return RedirectToAction("Index", "Identification");
         }
     }
 }
