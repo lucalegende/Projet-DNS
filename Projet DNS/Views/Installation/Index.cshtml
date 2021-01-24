@@ -4,7 +4,7 @@
 @{
 }
 <div class="register-logo">
-    <a href="index2.html"><b>Project</b> DNS</a>
+    <a href="index2.html"><b>Project</b> <img src="~/img/logo.png" alt="Project DNS Logo" style="height: 100px;"></a>
 </div>
 
 @if (ViewBag.Erreur != null)
@@ -19,12 +19,12 @@
 
 <div class="card">
     <div class="card-body register-card-body">
-        <p class="login-box-msg">Bonjour et bienvenue sur le projet DNS, Nous allons configuer le projet pour votre première connection</p>
+        <p class="login-box-msg">Bonjour et bienvenue sur le projet DNS.<br />Nous allons configurer le projet pour votre première connexion.</p>
 
         <form method="post">
-            <label for="email">Adresse email</label>
+            <label for="email">Adresse e-mail</label>
             <div class="input-group mb-3">
-                <input name="email" type="email" class="form-control" placeholder="Email...">
+                <input name="email" type="email" class="form-control" placeholder="E-mail...">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-envelope"></span>
@@ -33,7 +33,7 @@
             </div>
             <label for="password">Mot de passe</label>
             <div class="input-group mb-3">
-                <input name="password" type="password" class="form-control" placeholder="Mot de passe">
+                <input name="password" type="password" class="form-control" placeholder="Mot de passe...">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-lock"></span>

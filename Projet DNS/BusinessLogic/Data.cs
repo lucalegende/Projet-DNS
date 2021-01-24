@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Net.Mail;
+using System.Collections;
 
 namespace Projet_DNS.BusinessLogic
 {
@@ -234,7 +235,10 @@ namespace Projet_DNS.BusinessLogic
         {
             foreach(Toplist toplists in toplists.ToList())
             {
-                toplists.Frequence = ((toplists.Hits * 100) / Data.toplists.Sum(x => x.Hits));
+                if (Data.toplists.Sum(x => x.Hits) == 0)
+                    toplists.Frequence = 0;
+                else
+                    toplists.Frequence = ((toplists.Hits * 100) / Data.toplists.Sum(x => x.Hits));
             }
         } 
         #endregion
@@ -302,10 +306,12 @@ namespace Projet_DNS.BusinessLogic
                     w.WriteLine("local-data: \"" + domain + " A 0.0.0.0\"");
                 }
 
+                int id = blacklists.Count == 0 ? 0 : blacklists.Last().Id;
+
                 //Ajout du domain dans la blacklist
                 blacklists.Add(new Blacklist
                 {
-                    Id = blacklists.Last().Id + 1,
+                    Id = id+1,
                     Domain = domain
                 });
 
@@ -329,14 +335,22 @@ namespace Projet_DNS.BusinessLogic
 
             try
             {
-                //Supression dans le fichier
-                File.WriteAllLines(pathConf, File.ReadLines(pathConf).Where(s => !Regex.IsMatch(s, "([\" ])"+@"\b" + domain + @"\b")).ToList());
+                if (domain.Equals("."))
+                    File.WriteAllLines(pathConf, File.ReadLines(pathConf).Where(s => !Regex.IsMatch(s, "([\" ])\\.")).ToList());
+                else
+                    //Supression dans le fichier
+                    File.WriteAllLines(pathConf, File.ReadLines(pathConf).Where(s => !Regex.IsMatch(s, "([\" ])"+@"\b" + domain + @"\b")).ToList());
 
                 //Supression du domain dans la blacklist
                 var itemToRemove = blacklists.Single(r => r.Domain == domain);
                 blacklists.Remove(itemToRemove);
 
                 changeTopAndQueryBlackList(domain, false);
+
+                lock (toplists)
+                {
+                    toplists = toplists.ToList().Where(toplist => blacklists.Find(x => x.Domain == toplist.Domain) != null).ToList();
+                }
 
                 //Refresh dns and services
                 refreshServeurUnbound();
@@ -379,15 +393,7 @@ namespace Projet_DNS.BusinessLogic
             {
                 if (addBlacklist(domain))
                 {
-                    foreach (QueryLog queryLog in querylogs.ToList().Where(queryLog => queryLog.Domain == domain))
-                    {
-                        queryLog.Blacklist = true;
-                    }
-
-                    foreach (Toplist toplist in toplists.ToList().Where(toplist => toplist.Domain == domain))
-                    {
-                        toplist.blocked = true;
-                    }
+                    changeTopAndQueryBlackList(domain, true);
                 }
             }
         }
@@ -455,10 +461,12 @@ namespace Projet_DNS.BusinessLogic
                     w.WriteLine("local-zone: \"" + domain + "\" transparent");
                 }
 
+                int id = whitelists.Count == 0 ? 0 : whitelists.Last().Id;
+
                 //Ajout du domain dans la whitelist
                 whitelists.Add(new Whitelist
                 {
-                    Id = whitelists.Last().Id + 1,
+                    Id = id+1,
                     Domain = domain
                 });
 
@@ -480,8 +488,11 @@ namespace Projet_DNS.BusinessLogic
 
             try
             {
-                //Supression dans le fichier
-                File.WriteAllLines(pathConf, File.ReadLines(pathConf).Where(s => !Regex.IsMatch(s, "([\" ])" + @"\b" + domain + @"\b")).ToList());
+                if (domain.Equals("."))
+                    File.WriteAllLines(pathConf, File.ReadLines(pathConf).Where(s => !Regex.IsMatch(s, "([\" ])\\.")).ToList());
+                else
+                    //Supression dans le fichier
+                    File.WriteAllLines(pathConf, File.ReadLines(pathConf).Where(s => !Regex.IsMatch(s, "([\" ])" + @"\b" + domain + @"\b")).ToList());
 
                 //Supression du domain dans la blacklist
                 var itemToRemove = whitelists.Single(r => r.Domain == domain);
@@ -529,6 +540,11 @@ namespace Projet_DNS.BusinessLogic
                 if (Data.addWhitelist(domain))
                 {
                     changeTopAndQueryBlackList(domain, false);
+
+                    lock (toplists)
+                    {
+                        toplists = toplists.ToList().Where(toplist => blacklists.Find(x => x.Domain == toplist.Domain) != null).ToList();
+                    }
                 } 
             }
         }

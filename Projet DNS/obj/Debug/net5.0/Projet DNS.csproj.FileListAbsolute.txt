@@ -3,26 +3,15 @@ C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.Generated
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.AssemblyInfoInputs.cache
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.AssemblyInfo.cs
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.csproj.CoreCompileInputs.cache
-C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.RazorAssemblyInfo.cache
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.RazorAssemblyInfo.cs
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\web.config
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\appsettings.json
-C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet DNS.exe
-C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet DNS.deps.json
-C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet DNS.runtimeconfig.json
-C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet DNS.runtimeconfig.dev.json
-C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet DNS.dll
-C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\ref\Projet DNS.dll
-C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet DNS.pdb
-C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet DNS.Views.dll
-C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet DNS.Views.pdb
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\EntityFramework.SqlServer.dll
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\EntityFramework.dll
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
-C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
@@ -101,8 +90,6 @@ C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\ru\Microsoft.CodeAna
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
@@ -113,11 +100,6 @@ C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win\lib\net
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.ServiceProcess.ServiceController.dll
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet DNS.Core.Data.dll
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet DNS.Core.Data.pdb
-C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\staticwebassets\Projet DNS.StaticWebAssets.Manifest.cache
-C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\staticwebassets\Projet DNS.StaticWebAssets.xml
-C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\scopedcss\bundle\Projet DNS.styles.css
-C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.TagHelpers.input.cache
-C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.TagHelpers.output.cache
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.RazorCoreGenerate.cache
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Razor\Views\Blacklist\Index.cshtml.g.cs
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
@@ -133,11 +115,7 @@ C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Razor\Views\_ViewImp
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.RazorTargetAssemblyInfo.cache
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.RazorTargetAssemblyInfo.cs
-C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.Views.pdb
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.csproj.CopyComplete
-C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.dll
-C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\ref\Projet DNS.dll
-C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.pdb
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet DNS.genruntimeconfig.cache
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Razor\Views\Graphique\Index.cshtml.g.cs
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Razor\Views\Identification\Index.cshtml.g.cs
@@ -169,3 +147,26 @@ C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-x86\nat
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Razor\Views\Installation\Index.cshtml.g.cs
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet_DNS.exe
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet_DNS.deps.json
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet_DNS.runtimeconfig.json
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet_DNS.runtimeconfig.dev.json
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet_DNS.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\ref\Projet_DNS.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet_DNS.pdb
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet_DNS.Views.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Projet_DNS.Views.pdb
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet_DNS.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\staticwebassets\Projet_DNS.StaticWebAssets.Manifest.cache
+C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\staticwebassets\Projet_DNS.StaticWebAssets.xml
+C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\scopedcss\bundle\Projet_DNS.styles.css
+C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet_DNS.TagHelpers.input.cache
+C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet_DNS.TagHelpers.output.cache
+C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet_DNS.Views.pdb
+C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet_DNS.dll
+C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\ref\Projet_DNS.dll
+C:\Users\Kalictong\source\repos\Projet DNS\obj\Debug\net5.0\Projet_DNS.pdb
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+C:\Users\Kalictong\source\repos\Projet DNS\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe

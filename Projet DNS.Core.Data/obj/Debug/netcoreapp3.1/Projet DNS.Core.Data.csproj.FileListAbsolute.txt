@@ -1,0 +1,9 @@
+C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\bin\Debug\netcoreapp3.1\Projet DNS.Core.Data.deps.json
+C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\bin\Debug\netcoreapp3.1\Projet DNS.Core.Data.dll
+C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\bin\Debug\netcoreapp3.1\Projet DNS.Core.Data.pdb
+C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\obj\Debug\netcoreapp3.1\Projet DNS.Core.Data.AssemblyInfoInputs.cache
+C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\obj\Debug\netcoreapp3.1\Projet DNS.Core.Data.AssemblyInfo.cs
+C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\obj\Debug\netcoreapp3.1\Projet DNS.Core.Data.csproj.CoreCompileInputs.cache
+C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\obj\Debug\netcoreapp3.1\Projet DNS.Core.Data.dll
+C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\obj\Debug\netcoreapp3.1\Projet DNS.Core.Data.pdb
+C:\Users\Kalictong\source\repos\Projet DNS.Core.Data\obj\Debug\netcoreapp3.1\Projet DNS.Core.Data.csprojAssemblyReference.cache

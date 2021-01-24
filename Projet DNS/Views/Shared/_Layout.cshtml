@@ -102,7 +102,7 @@ else
                         <a class="nav-link">Droit administrateur : </a>
                         @if (ViewBag.AccountAdmin == true)
                         {
-                            <span class="input-group-text" style="background-color: green;">
+                            <span class="input-group-text mr-2" style="background-color: green;">
                                 <i class="nav-icon fa fa-check" style="color: white;"></i>
                             </span>
                         }
@@ -111,7 +111,7 @@ else
                             <span class="input-group-text" style="background-color: red;">
                                 <i class="nav-icon fa fa-times" style="color: white;"></i>
                             </span>
-                            <a class="nav-link">Le projet vous bloque l'accès</a>
+                            <a class="nav-link">Le projet vous bloque l'accès.</a>
                         }
                     </div>
                 </div>
@@ -120,9 +120,8 @@ else
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="index.html" class="brand-link">
-                    <img src="~/img/logo.png" alt="Project DNS Logo" style="height: 50px;">
-                    <span class="brand-text font-weight-light">Projet DNS</span>
+                <a href="index.html" class="brand-link text-center">
+                    <span class="brand-text font-weight-light">Projet <img src="~/img/logo.png" alt="Project DNS Logo" style="height: 50px;"></span>
                 </a>
 
                 <!-- Sidebar -->
@@ -161,41 +160,6 @@ else
                                     </p>
                                 </a>
                             </li>
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-edit"></i>
-                                    <p>
-                                        Désactivation
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>5 Minute</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>10 Minute</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>15 Minute</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Choisir le temps</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
                             <li id="outilsmenu" class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-table"></i>
@@ -208,13 +172,13 @@ else
                                     <li class="nav-item">
                                         <a id="graphics" class="nav-link" asp-area="" asp-controller="Graphique" asp-action="Index">
                                             <i class="nav-icon fas fa-file-alt"></i>
-                                            <p>Graphique</p>
+                                            <p>Graphiques</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a id="toplist" class="nav-link" asp-area="" asp-controller="TopList" asp-action="Index">
                                             <i class="nav-icon fas fa-file-alt"></i>
-                                            <p>Top List</p>
+                                            <p>Top liste</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">

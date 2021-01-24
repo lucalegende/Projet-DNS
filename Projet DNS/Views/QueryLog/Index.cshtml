@@ -36,7 +36,7 @@
                                                 <td>@log.DateTime</td>
                                                 <td>@log.IP</td>
                                                 <td>@log.Domain</td>
-                                                <td>Blocker par Project Dns</td>
+                                                <td>Bloqué par Project DNS</td>
                                                 <td>
                                                     <form asp-action="AddWhiteList">
                                                         <input asp-for="Domain" type="hidden" value="@log.Domain">
@@ -65,11 +65,11 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Rendering engine</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
-                                    <th>CSS grade</th>
+                                    <th>Date/Heure</th>
+                                    <th>Ip Serveur</th>
+                                    <th>Domain</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </tfoot>
                         </table>
